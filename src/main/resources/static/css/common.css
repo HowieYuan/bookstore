@@ -1,0 +1,326 @@
+#wrap-box, body, html {
+    height: 100%;
+    width: 100%
+}
+
+.header1, .quit {
+    background-color: #fff
+}
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    font-size: 14px;
+    font-family: "Microsoft YaHei"
+}
+
+#wrap-box {
+    min-width: 1300px
+}
+
+body, html {
+    overflow-y: hidden;
+    position: relative
+}
+
+.header1 {
+    width: 100%;
+    height: 70px;
+    line-height: 70px
+}
+
+.headerText1 {
+    margin-left: 30px;
+    font-size: 26px;
+    font-weight: bolder;
+    color: #f4770f
+}
+
+.headerText {
+    margin-left: 13px;
+    font-size: 24px;
+    color: #000
+}
+
+.quit {
+    border: 0 solid #78b8b5;
+    outline: 0;
+    border-radius: 4px;
+    margin-top: 20px;
+    cursor: pointer
+}
+
+.quit_box {
+    float: right;
+    margin-right: 30px
+}
+
+.username {
+    float: left;
+    margin-right: 6px
+}
+
+.iconfont {
+    font-family: iconfont !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .2px;
+    -moz-osx-font-smoothing: grayscale;
+    padding-right: 5px
+}
+
+@font-face {
+    font-family: iconfont;
+    src: url(icon/iconfont.ttf), url(icon/iconfont.eot)
+}
+
+.sidebar {
+    width: 180px;
+    height: 100%;
+    background-color: #2b3946;
+    float: left
+}
+
+#search, #showpage, #table, table {
+    width: 100%
+}
+
+#table tr:nth-child(odd), .information_box {
+    background: #ebeff2
+}
+
+ul {
+    list-style: none;
+    padding-top: 10px
+}
+
+a {
+    text-decoration: none
+}
+
+li {
+    display: block;
+    font-size: 23px;
+    padding: 12px 0 12px 25px
+}
+
+.sidebarA {
+    font-size: 18px;
+    color: #78b8b5
+}
+
+.sidebarA:hover, th {
+    color: #fff
+}
+
+.information_box {
+    height: 100%;
+    padding: 20px;
+    margin-left: 180px;
+    min-width: 1200px
+}
+
+#table tr:nth-child(even), td button {
+    background: #fff
+}
+
+table {
+    border-collapse: collapse;
+    font-size: 12px;
+    border: 1px dotted gray
+}
+
+th {
+    height: 43px;
+    text-align: center;
+    background-color: #54908e
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+    word-wrap: break-word
+}
+
+td img {
+    max-width: 70px;
+    max-height: 70px;
+    clip: rect(0, 20px, 20px, 0);
+    margin-top: 5px;
+    margin-right: 5px
+}
+
+td, th {
+    border: 1px solid #000
+}
+
+td button {
+    border-radius: 8%;
+    width: 80px;
+    padding: 7px 0;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border: 1px solid #444;
+    outline: 0
+}
+
+#table {
+    height: 80%;
+    overflow: auto;
+    margin-top: 10px
+}
+
+.active {
+    color: red
+}
+
+#new_item {
+    width: 90px;
+    margin-bottom: 20px
+}
+
+#showpage {
+    text-align: center;
+    height: 10%
+}
+
+.top {
+    margin-top: -30px
+}
+
+#showpage span {
+    margin: 2px 10px;
+    cursor: pointer;
+    font-size: 18px
+}
+
+#color {
+    color: #fff
+}
+
+#search {
+    min-width: 1145px
+}
+
+input {
+    outline: 0;
+    width: 150px
+}
+
+#search span {
+    color: #101010;
+    margin: 5px;
+    position: relative;
+    float: left;
+    font-size: 20px
+}
+
+#searchbtn, #searchbtn2, #searchbtn3, #searchbtn4, #searchbtn5, #searchbtn6, #searchbtn7, #searchbtn8 {
+    width: 80px;
+    margin-right: 10px;
+    margin-left: 10px
+}
+
+#bossSearch {
+    left: 10px
+}
+
+#bossSearch, #playSearch {
+    position: absolute;
+    font-size: 16px;
+    z-index: 2;
+    top: 9px
+}
+
+#playSearch {
+    left: 190px
+}
+
+.dataSearch, .data_employee_profit_select, .data_gift_profit, .data_platform_profit_select, .data_play_gift_profit, .data_status, .handle_complaint_platform_select, .search_css, .skill_already_check_select, .skill_wait_check_select {
+    position: relative;
+    height: 35px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    color: #777;
+    cursor: pointer
+}
+
+.data_employee_profit_select, .data_gift_profit, .data_platform_profit_select, .data_play_gift_profit, .data_status, .handle_complaint_platform_select, .skill_already_check_select, .skill_wait_check_select {
+    margin-left: 15px;
+    padding: 0 10px
+}
+
+#bossId, #playId, #playId4, #skillId, #skillId4, #skillId5, #userId, #userId2, #userId3, #userId6 {
+    width: 175px
+}
+
+.dataSearch {
+    float: left;
+    margin-right: 5px
+}
+
+#endTime, #endTime2, #endTime3, #endTime4, #endTime5, #endTime7, #endTime8, #startTime, #startTime2, #startTime3, #startTime4, #startTime5, #startTime7, #startTime8 {
+    width: 150px;
+    display: inline-block;
+    margin-left: 6px;
+    height: 35px;
+    border: 1px solid #444;
+    border-radius: 4px;
+    font-size: 16px;
+    text-align: center;
+    color: #777
+}
+
+.tog {
+    display: inline-block;
+    position: relative;
+    height: 40px;
+    float: right;
+    margin-right: 20px
+}
+
+.bg, .large_image_none {
+    display: none
+}
+
+.bg, .img_table, .large_image_block, .large_image_none {
+    height: 100%;
+    width: 100%
+}
+
+.bg {
+    position: fixed;
+    background: #000;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    opacity: .5
+}
+
+.large_image_block {
+    display: block
+}
+
+.become_large, .img_table, .large_image_block {
+    position: absolute;
+    z-index: 2;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0
+}
+
+.become_large, .img_table img {
+    max-width: 380px;
+    max-height: 380px
+}
+
+.no {
+    display: none
+}

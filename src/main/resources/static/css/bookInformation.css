@@ -1,0 +1,44 @@
+body {
+    font-size: 13px;
+}
+
+h2 {
+    font-size: 16px;
+    color: #007722;
+    line-height: 150%;
+}
+
+.indent {
+    word-break: break-all;
+}
+
+#mainpic {
+    float: left;
+    text-align: center;
+    margin: 3px 12px 0 0;
+    max-width: 155px;
+    overflow: hidden;
+}
+
+#info {
+    word-wrap: break-word;
+    display: block;
+}
+
+.pl {
+    line-height: 150%;
+    color: #666666;
+}
+
+.related_info {
+    margin-right: 100px;
+}
+
+.information_box {
+    height: 100%;
+    padding-left: 40px;
+    padding-top: 30px;
+    margin-left: 180px;
+    min-width: 1200px;
+}
+

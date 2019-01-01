@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.howie.bookstore.dao.BookMapper">
+    <select id="getBooks" resultType="Book">
+        SELECT
+            id,
+            name,
+            category,
+            price,
+            quantity,
+            author,
+            press
+        FROM book
+    </select>
+
+    <select id="getBookInformation" parameterType="int" resultType="BookInformation">
+        SELECT
+            id,
+            name,
+            author,
+            category,
+            price,
+            introduction,
+            author_introduction authorIntroduction,
+            quantity,
+            pageNum,
+            press,
+            image_url           imageURL,
+            isbn
+        FROM book
+        WHERE id = #{id}
+    </select>
+</mapper>
