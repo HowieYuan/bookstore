@@ -1,0 +1,9 @@
+.information {
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.information-panel {
+    float: left;
+    margin: 40px 80px 0 40px;
+}

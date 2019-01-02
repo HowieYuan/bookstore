@@ -1,3 +1,20 @@
+span {
+    position: relative;
+    text-align: center;
+}
+
+button {
+    border-radius: 5px;
+    height: 30px;
+    border: 1px solid rgb(221, 221, 221);
+    padding: 2px 5px;
+    background-color: rgb(255, 255, 255);
+}
+
+label {
+    width: 100px;
+}
+
 #wrap-box, body, html {
     height: 100%;
     width: 100%
@@ -118,7 +135,7 @@ li {
     height: 100%;
     padding: 20px;
     margin-left: 180px;
-    min-width: 1200px
+    /*min-width: 1200px*/
 }
 
 #table tr:nth-child(even), td button {

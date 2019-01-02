@@ -1,20 +1,7 @@
 const bookId = GetQueryString();
 
-/**
- * @return {string} id
- */
-function GetQueryString() {
-    const reg = new RegExp("(^|&)" + "id" + "=([^&]*)(&|$)");
-    const r = window.location.search.substr(1).match(reg);
-    if (r !== null) {
-        s = unescape(decodeURI(decodeURI(r[2])));
-        return s.substring(4, s.length);
-    }
-    return null;
-}
-
-
 $(function () {
+    alert(bookId);
     $.ajax({
         url: "http://localhost:8080/bookInformation/" + bookId,
         type: "GET",
@@ -58,3 +45,17 @@ $(function () {
         }
     })
 });
+
+
+/**
+ * @return {string} id
+ */
+function GetQueryString() {
+    const reg = new RegExp("(^|&)" + "id" + "=([^&]*)(&|$)");
+    const r = window.location.search.substr(1).match(reg);
+    if (r !== null) {
+        s = unescape(decodeURI(decodeURI(r[2])));
+        return s.substring(4, s.length);
+    }
+    return null;
+}
