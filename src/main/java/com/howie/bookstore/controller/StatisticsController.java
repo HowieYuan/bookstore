@@ -4,6 +4,7 @@ import com.howie.bookstore.dao.ReaderMapper;
 import com.howie.bookstore.dao.StatisticsMapper;
 import com.howie.bookstore.model.ResultMap;
 import com.howie.bookstore.model.Statistics;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,6 +32,7 @@ public class StatisticsController {
     }
 
     @RequestMapping(value = "/statistics", method = RequestMethod.GET)
+    @RequiresRoles("admin")
     public ResultMap statistics() {
         List<Statistics> list = statisticsMapper.getStatistics();
         Statistics total = statisticsMapper.getTotalAmount();

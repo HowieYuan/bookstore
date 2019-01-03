@@ -3,6 +3,7 @@ package com.howie.bookstore.controller;
 import com.howie.bookstore.dao.BookMapper;
 import com.howie.bookstore.model.BookInformation;
 import com.howie.bookstore.model.ResultMap;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,11 +30,13 @@ public class BookController {
     }
 
     @RequestMapping(value = "/book", method = RequestMethod.GET)
+    @RequiresRoles("admin")
     public ResultMap getBooks() {
         return resultMap.success().message(bookMapper.getBooks());
     }
 
     @RequestMapping(value = "/bookInformation/{id}", method = RequestMethod.GET)
+    @RequiresRoles("admin")
     public ResultMap getBookInformation(@PathVariable("id") int id) {
         BookInformation bookInformation = bookMapper.getBookInformation(id);
         return resultMap.success().message(bookInformation);

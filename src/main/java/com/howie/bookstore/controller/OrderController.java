@@ -5,6 +5,7 @@ import com.howie.bookstore.dao.ReaderMapper;
 import com.howie.bookstore.model.Order;
 import com.howie.bookstore.model.Reader;
 import com.howie.bookstore.model.ResultMap;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +37,7 @@ public class OrderController {
 
 
     @RequestMapping(value = "/order", method = RequestMethod.GET)
+    @RequiresRoles("admin")
     public ResultMap getOrders() {
         List<Order> list = orderMapper.getOrders();
         for (Order order : list) {
@@ -46,6 +48,7 @@ public class OrderController {
     }
 
     @RequestMapping(value = "/orderInformation/{id}", method = RequestMethod.GET)
+    @RequiresRoles("admin")
     public ResultMap getOrderInformation(@PathVariable("id") int id) {
         Order order = orderMapper.getOrderInformation(id);
         Reader reader = readerMapper.getReader(order.getPurchaserId());
