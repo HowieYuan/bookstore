@@ -1,50 +1,45 @@
 const orderId = GetQueryString();
 
 $(function () {
-    alert(orderId);
-    alert(orderInformation.message[orderId].bookName);
-    // $.ajax({
-    //     url: "http://localhost:8080/orderInformation/" + orderId,
-    //     type: "GET",
-    //     dataType: "json",
-    //     data: {},
-    //     traditional: true,
-    //     success: function (e) {
-    //         s = ["<div class=\"indent\">",
-    //             "    <div id=\"mainpic\">",
-    //             "        <img src='" + e.message.imageURL + "'",
-    //             "             style=\"width: 135px;max-height: 183px;\"/>",
-    //             "    </div>",
-    //             "    <div id=\"info\">",
-    //             "        <span class=\"pl\">书名：</span>" + e.message.name + "<br>",
-    //             "        <span class=\"pl\">作者：</span>" + e.message.author + "<br>",
-    //             "        <span class=\"pl\">类别：</span>" + e.message.category + "<br>",
-    //             "        <span class=\"pl\">价格：</span>" + e.message.price + "<br>",
-    //             "        <span class=\"pl\">库存：</span>" + e.message.quantity + "<br>",
-    //             "        <span class=\"pl\">页数：</span>" + e.message.pageNum + "<br>",
-    //             "        <span class=\"pl\">出版社：</span>" + e.message.press + "<br>",
-    //             "        <span class=\"pl\">ISBN：</span>" + e.message.isbn + "<br>",
-    //             "    </div>",
-    //             "</div>",
-    //             "<div class=\"related_info\">",
-    //             "    <h2>",
-    //             "        <span class=\"\">内容简介</span>",
-    //             "        &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·",
-    //             "    </h2>",
-    //             "    <div>" + e.message.authorIntroduction + "</div>",
-    //             "    <h2>",
-    //             "        <span class=\"\">作者简介</span>",
-    //             "        &nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·&nbsp;·",
-    //             "    </h2>",
-    //             "    <div>" + e.message.introduction + "</div>",
-    //             "</div>"].join("");
-    //         $("#content").html(s);
-    //     },
-    //     error: function (e) {
-    //         alert("error");
-    //         console.log(e);
-    //     }
-    // })
+    $.ajax({
+        url: "http://localhost:8080/orderInformation/" + orderId,
+        type: "GET",
+        dataType: "json",
+        data: {},
+        traditional: true,
+        success: function (e) {
+            s = ["<div class=\"information-panel\">",
+                "    <div class=\"information\">订单编号：" + e.message.orderId + "</div>",
+                "    <br>",
+                "    <div class=\"information\">购买者姓名：" + e.message.reader.name + "</div>",
+                "    <br>",
+                "    <div class=\"information\">书名：<a class='information' href='bookInformation.html?id=book" + e.message.bookId +
+                    "'>《" + e.message.bookName + "》</a></div>",
+                "    <br>",
+                "    <div class=\"information\">数量：" + e.message.bookNum + "</div>",
+                "    <br>",
+                "    <div class=\"information\">总价：" + e.message.amount + "</div>",
+                "    <br>",
+                "    <div class=\"information\">支付方式：" + e.message.paymentMethod + "</div>",
+                "    <br>",
+                "</div>",
+                "<div class=\"information-panel\">",
+                "    <div class=\"information\">订单状态：" + e.message.status + "</div>",
+                "    <br>",
+                "    <div class=\"information\">地址：" + e.message.adress + "</div>",
+                "    <br>",
+                "    <div class=\"information\">交易时间：" + e.message.date + "</div>",
+                "    <br>",
+                "    <div class=\"information\">快递公司：" + e.message.express + "</div>",
+                "    <br>",
+                "</div>"].join("");
+            $("#content").html(s);
+        },
+        error: function (e) {
+            alert("error");
+            console.log(e);
+        }
+    })
 });
 
 

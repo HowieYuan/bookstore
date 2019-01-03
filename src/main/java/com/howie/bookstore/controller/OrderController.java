@@ -6,6 +6,7 @@ import com.howie.bookstore.model.Order;
 import com.howie.bookstore.model.Reader;
 import com.howie.bookstore.model.ResultMap;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,6 +43,14 @@ public class OrderController {
             order.setReader(reader);
         }
         return resultMap.success().message(list);
+    }
+
+    @RequestMapping(value = "/orderInformation/{id}", method = RequestMethod.GET)
+    public ResultMap getOrderInformation(@PathVariable("id") int id) {
+        Order order = orderMapper.getOrderInformation(id);
+        Reader reader = readerMapper.getReader(order.getPurchaserId());
+        order.setReader(reader);
+        return resultMap.success().message(order);
     }
 
 }

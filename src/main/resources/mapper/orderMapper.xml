@@ -18,4 +18,22 @@
         FROM `order` o, book b
         WHERE o.book_id = b.id
     </select>
+
+    <select id="getOrderInformation" resultType="Order">
+        SELECT
+            o.id,
+            order_id       orderId,
+            purchaser_id   purchaserId,
+            book_id        bookId,
+            book_num       bookNum,
+            amount,
+            payment_method paymentMethod,
+            express,
+            adress,
+            `date`,
+            `status`,
+            name bookName
+        FROM `order` o, book b
+        WHERE o.book_id = b.id AND o.id = #{id}
+    </select>
 </mapper>

@@ -1,14 +1,11 @@
-let orderInformation ;
-
 $(function () {
     $.ajax({
-        url: "http://localhost:8080/order",
+        url: url + "/order",
         type: "GET",
         dataType: "json",
         data: {},
         traditional: true,
         success: function (e) {
-            orderInformation = e;
             for (i = 0; i < e.message.length; i++) {
                 t = "<tr id='order" + e.message[i].id + "' onclick='toOrderInformation(" + e.message[i].id + ")'>"+
                     "<td id='orderId" + e.message[i].id + "'>" + e.message[i].orderId + "</td>" +

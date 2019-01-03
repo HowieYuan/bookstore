@@ -1,9 +1,4 @@
 package com.howie.bookstore.model;
-import java.util.Date;
-
-import static com.howie.bookstore.util.DateFormatUtils.DATE_FORMAT2;
-import static com.howie.bookstore.util.DateFormatUtils.formatDate;
-
 /**
  * Created with IntelliJ IDEA
  *

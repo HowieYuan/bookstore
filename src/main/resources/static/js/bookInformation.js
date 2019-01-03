@@ -1,9 +1,8 @@
 const bookId = GetQueryString();
 
 $(function () {
-    alert(bookId);
     $.ajax({
-        url: "http://localhost:8080/bookInformation/" + bookId,
+        url: url + "/bookInformation/" + bookId,
         type: "GET",
         dataType: "json",
         data: {},

@@ -1,6 +1,6 @@
 $(function () {
     $.ajax({
-        url: "http://localhost:8080/book",
+        url: url + "/book",
         type: "GET",
         dataType: "json",
         data: {},
