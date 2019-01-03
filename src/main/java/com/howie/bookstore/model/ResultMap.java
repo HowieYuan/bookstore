@@ -27,16 +27,6 @@ public class ResultMap extends HashMap<String, Object> {
         return this;
     }
 
-    public ResultMap fail1() {
-        this.put("result", "fail-1");
-        return this;
-    }
-
-    public ResultMap fail2() {
-        this.put("result", "fail-2");
-        return this;
-    }
-
     public ResultMap message(Object message) {
         this.put("message", message);
         return this;

@@ -23,6 +23,9 @@ $(function () {
     })
 }), $(function () {
     $("<span class='username'>" + localStorage.myUserName + "</span>").insertBefore(".quit"), $("button").click(function () {
-        if ($(this).is(".quit")) return confirm("您确定要退出主页吗？") && (top.location = "../index.html"), !1
+        if ($(this).is(".quit")) {
+            localStorage.mytoken = null;
+            return confirm("您确定要退出登陆吗？") && (window.location.href = "../html/index.html"), !1
+        }
     })
 });

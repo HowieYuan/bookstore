@@ -1,6 +1,7 @@
 package com.howie.bookstore.filter;
 
 import com.howie.bookstore.config.shiro.JWTToken;
+import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.web.filter.authc.BasicHttpAuthenticationFilter;
 import org.slf4j.Logger;
@@ -61,7 +62,7 @@ public class JWTFilter extends BasicHttpAuthenticationFilter {
      * 执行登陆操作
      */
     @Override
-    protected boolean executeLogin(ServletRequest request, ServletResponse response) throws Exception {
+    protected boolean executeLogin(ServletRequest request, ServletResponse response) throws AuthenticationException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String token = httpServletRequest.getHeader("Token");
         JWTToken jwtToken = new JWTToken(token);

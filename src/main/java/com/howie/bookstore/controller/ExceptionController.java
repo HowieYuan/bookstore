@@ -2,6 +2,7 @@ package com.howie.bookstore.controller;
 
 import com.howie.bookstore.model.ResultMap;
 import org.apache.shiro.ShiroException;
+import org.apache.shiro.authc.AuthenticationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -27,7 +28,7 @@ public class ExceptionController {
     }
 
     // 捕捉shiro的异常
-    @ExceptionHandler(ShiroException.class)
+    @ExceptionHandler({ShiroException.class, AuthenticationException.class})
     public ResultMap handle401() {
         return resultMap.fail().message("您没有权限访问！");
     }
