@@ -13,6 +13,19 @@
         FROM book
     </select>
 
+    <select id="searchBookByName" parameterType="String" resultType="Book">
+        SELECT
+            id,
+            name,
+            category,
+            price,
+            quantity,
+            author,
+            press
+        FROM book
+        WHERE LOCATE(#{bookName}, name) > 0
+    </select>
+
     <select id="getBookInformation" parameterType="int" resultType="BookInformation">
         SELECT
             id,

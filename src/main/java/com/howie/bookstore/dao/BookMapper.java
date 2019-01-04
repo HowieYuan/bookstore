@@ -19,6 +19,8 @@ import java.util.List;
 public interface BookMapper {
     List<Book> getBooks();
 
+    List<Book> searchBookByName(String bookName);
+
     BookInformation getBookInformation(int id);
 
     void updateBookInformation(@Param("bookInformation") BookInformation bookInformation);
