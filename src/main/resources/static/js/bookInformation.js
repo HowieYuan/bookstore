@@ -12,6 +12,9 @@ $(function () {
         },
         success: function (e) {
             if (e.result === "success") {
+                content = $("#content");
+                content.html("<a class='bookUpdate' onclick=deleteBook(" + e.message.id + ")>删除图书</a>" +
+                    "<a class='bookUpdate' href='bookUpdate.html?id=" + e.message.id + "'>修改图书信息</a>");
                 s = ["<div class=\"indent\">",
                     "    <div id=\"mainpic\">",
                     "        <img src='" + e.message.imageURL + "'",
@@ -40,7 +43,8 @@ $(function () {
                     "    </h2>",
                     "    <div>" + e.message.introduction + "</div>",
                     "</div>"].join("");
-                $("#content").html(s);
+                content.html(content.html() + s);
+                localStorage.bookInformation = e.message;
             } else {
                 alert(e.message);
                 window.location.href='index.html';
@@ -66,3 +70,32 @@ function GetQueryString() {
     }
     return null;
 }
+
+function deleteBook(id) {
+    $.ajax({
+        url: url + "/bookInformation/delete",
+        type: "POST",
+        dataType: "json",
+        data: {
+            id: bookId
+        },
+        traditional: true,
+        beforeSend: function (e) {
+            e.setRequestHeader("Token", localStorage.mytoken)
+        },
+        success: function (e) {
+            alert(e.message);
+            if (e.result === "success") {
+                window.location.href = 'book.html';
+            } else {
+                alert(e.message);
+                window.location.href = 'index.html';
+            }
+        },
+        error: function (e) {
+            alert("error");
+            console.log(e);
+        }
+    })
+}
+

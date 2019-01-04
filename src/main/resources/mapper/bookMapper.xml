@@ -30,4 +30,38 @@
         FROM book
         WHERE id = #{id}
     </select>
+
+    <update id="updateBookInformation" parameterType="BookInformation">
+        UPDATE book
+        SET
+            name                = #{bookInformation.name},
+            author              = #{bookInformation.author},
+            price               = #{bookInformation.price},
+            category            = #{bookInformation.category},
+            press               = #{bookInformation.press},
+            image_url           = #{bookInformation.imageURL},
+            pageNum             = #{bookInformation.pageNum},
+            isbn                = #{bookInformation.isbn},
+            introduction        = #{bookInformation.introduction},
+            author_introduction = #{bookInformation.authorIntroduction},
+            quantity            = #{bookInformation.quantity}
+        WHERE id = #{bookInformation.id}
+    </update>
+
+    <insert id="addBookInformation" parameterType="BookInformation">
+        INSERT INTO book
+        (name, author, category, price, introduction, author_introduction, quantity,
+         pageNum, press, image_url, isbn)
+        VALUES (
+            #{bookInformation.name}, #{bookInformation.author}, #{bookInformation.category},
+                                     #{bookInformation.price}, #{bookInformation.introduction},
+                                     #{bookInformation.authorIntroduction}, #{bookInformation.quantity},
+                                     #{bookInformation.pageNum}, #{bookInformation.press}, #{bookInformation.imageURL},
+                                     #{bookInformation.isbn})
+    </insert>
+
+    <delete id="deleteBookInformation" parameterType="int">
+        DELETE FROM book
+        WHERE id = #{id}
+    </delete>
 </mapper>

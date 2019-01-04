@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改图书信息</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel=stylesheet href=../css/common.css>
+    <link rel=stylesheet href=../css/bookUpdate.css>
+    <style type=text/css>
+
+    </style>
+</head>
+<body>
+<div id=wrap-box>
+    <div class=header1><span class=headerText1>Howie</span> <span class=headerText>书店管理系统</span>
+        <div class=quit_box>
+            <button class=quit><i class=iconfont>&#xe79b;</i><span class=quitText>退出</span></button>
+        </div>
+    </div>
+    <ul class=sidebar>
+        <li class=menu><a href=book.html class=sidebarA><i class=iconfont>&#xe612;</i>图书管理</a>
+        </li>
+        <li class=menu><a href=reader.html class=sidebarA><i class=iconfont>&#xe7ca;</i>读者管理</a></li>
+        <li class=menu><a href=order.html class=sidebarA><i class=iconfont>&#xe604;</i>订单管理</a></li>
+        <li class=menu><a href=statistics.html class=sidebarA><i class=iconfont>&#xe616;</i>报表</a></li>
+    </ul>
+    <div class=information_box id="content">
+        <div class="information-panel">
+            <div class="information">书名：<input type="text" id="name" placeholder="文本输入"></div>
+            <div class="information">作者：<input type="text" id="author" placeholder="文本输入"></div>
+            <div class="information">类别：<input type="text" id="category"></div>
+            <div class="information">价格：<input type="text" id="price"></div>
+            <div class="information">库存：<input type="text" id="quantity"></div>
+            <div class="information">页数：<input type="text" id="pageNum"></div>
+            <div class="information">出版社：<input type="text" id="press"></div>
+            <div class="information">ISBN：<input type="text" id="isbn"></div>
+            <input type="submit" id="submit" value="确定修改">
+        </div>
+        <div class="information-panel">
+            <div class="information">封面：<input class="bookURL" id="imageURL" type="text"></div>
+            <div class="information">内容简介：</div>
+            <label>
+                <textarea rows="3" id="authorIntroduction"></textarea>
+            </label>
+            <div class="information">作者简介：</div>
+            <label>
+                <textarea rows="3" id="introduction"></textarea>
+            </label>
+        </div>
+    </div>
+</div>
+<script type=text/javascript src=../js/jquery.min.js></script>
+<script type=text/javascript src=../js/common.js></script>
+<script type=text/javascript src=../js/url.js></script>
+<script type=text/javascript src=../js/bookUpdate.js></script>
+</body>
+</html>

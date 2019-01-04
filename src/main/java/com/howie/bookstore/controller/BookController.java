@@ -41,4 +41,25 @@ public class BookController {
         BookInformation bookInformation = bookMapper.getBookInformation(id);
         return resultMap.success().message(bookInformation);
     }
+
+    @RequestMapping(value = "/bookInformation", method = RequestMethod.POST)
+    @RequiresRoles("admin")
+    public ResultMap updateBookInformation(BookInformation bookInformation) {
+        bookMapper.updateBookInformation(bookInformation);
+        return resultMap.success().message("修改成功");
+    }
+
+    @RequestMapping(value = "/bookInformation/add", method = RequestMethod.POST)
+    @RequiresRoles("admin")
+    public ResultMap addBookInformation(BookInformation bookInformation) {
+        bookMapper.addBookInformation(bookInformation);
+        return resultMap.success().message("添加成功");
+    }
+
+    @RequestMapping(value = "/bookInformation/delete", method = RequestMethod.POST)
+    @RequiresRoles("admin")
+    public ResultMap deleteBookInformation(int id) {
+        bookMapper.deleteBookInformation(id);
+        return resultMap.success().message("删除成功");
+    }
 }

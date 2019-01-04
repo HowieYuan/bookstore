@@ -42,3 +42,8 @@ h2 {
     min-width: 1000px;
 }
 
+.bookUpdate {
+    float: right;
+    margin-right: 120px;
+}
+
