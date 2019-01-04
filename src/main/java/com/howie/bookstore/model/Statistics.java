@@ -1,5 +1,8 @@
 package com.howie.bookstore.model;
 
+import com.alibaba.excel.annotation.ExcelProperty;
+import com.alibaba.excel.metadata.BaseRowModel;
+
 /**
  * Created with IntelliJ IDEA
  *
@@ -8,9 +11,14 @@ package com.howie.bookstore.model;
  * @Date 2019-01-03
  * @Time 17:16
  */
-public class Statistics {
+public class Statistics extends BaseRowModel {
+    @ExcelProperty(value = "图书类目", index = 0)
     private String category;
+
+    @ExcelProperty(value = "销量", index = 1)
     private int sales;
+
+    @ExcelProperty(value = "销售额", index = 2)
     private int amount;
 
     public Statistics() {

@@ -1,5 +1,6 @@
 package com.howie.bookstore.controller;
 
+import com.howie.bookstore.config.excel.ExcelUtil;
 import com.howie.bookstore.dao.ReaderMapper;
 import com.howie.bookstore.dao.StatisticsMapper;
 import com.howie.bookstore.model.ResultMap;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -39,6 +42,19 @@ public class StatisticsController {
         total.setCategory("总量");
         list.add(total);
         return resultMap.success().message(list);
+    }
+
+    @RequestMapping(value = "/statistics/export", method = RequestMethod.GET)
+    @RequiresRoles("admin")
+    public void exportStatistics(HttpServletResponse response) throws IOException {
+        List<Statistics> list = statisticsMapper.getStatistics();
+        Statistics total = statisticsMapper.getTotalAmount();
+        total.setCategory("总量");
+        list.add(total);
+        String fileName = "图书销售统计报表";
+        String sheetName = "各类目销售统计";
+        response.setHeader("content-type", "application/octet-stream");
+        ExcelUtil.writeExcel(response, list, fileName, sheetName, new Statistics());
     }
 
 }

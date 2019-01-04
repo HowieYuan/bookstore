@@ -21,7 +21,7 @@ $(function () {
                 }
             } else {
                 alert(e.message);
-                window.location.href='index.html';
+                window.location.href = 'index.html';
             }
         },
         error: function (e) {
@@ -29,4 +29,28 @@ $(function () {
             console.log(e);
         }
     })
+});
+
+$("#submit").click(function () {
+    let url = "http://localhost:8080/statistics/export";
+    let xhr = new XMLHttpRequest();
+    xhr.open('get', url, true);
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhr.setRequestHeader('Token', localStorage.mytoken);
+    xhr.responseType = 'blob';
+    xhr.onload = function () {
+        if (this.status === 200) {
+            let blob = this.response;
+            let reader = new FileReader();
+            reader.readAsDataURL(blob);
+            reader.onload = function (e) {
+                let a = document.createElement('a');
+                a.download = '图书销售统计报表.xlsx';
+                console.log(e);
+                a.href = window.URL.createObjectURL(blob);
+                a.click();
+            };
+        }
+    };
+    xhr.send();
 });
