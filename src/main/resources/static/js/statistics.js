@@ -15,6 +15,7 @@ $(function () {
                         "<td>" + e.message[i].category + "</td>" +
                         "<td>" + e.message[i].sales + "</td>" +
                         "<td>" + e.message[i].amount + "</td>" +
+                        "<td>" + e.message[i].bookNum + "</td>" +
                         "</tr>";
                     table = $("#table");
                     table.html(table.html() + t);

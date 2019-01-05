@@ -5,16 +5,21 @@
         SELECT
             category,
             sum(book_num) sales,
-            sum(amount)   amount
-        FROM `order` o, book b
-        WHERE o.book_id = b.id
+            sum(amount)   amount,
+            count(b.id)   bookNum
+        FROM book b
+            LEFT JOIN `order` o
+                ON o.book_id = b.id
         GROUP BY category
     </select>
 
     <select id="getTotalAmount" resultType="Statistics">
         SELECT
             sum(book_num) sales,
-            sum(amount)   amount
-        FROM `order`
+            sum(amount)   amount,
+            count(b.id)   bookNum
+        FROM book b
+            LEFT JOIN `order` o
+                ON o.book_id = b.id
     </select>
 </mapper>

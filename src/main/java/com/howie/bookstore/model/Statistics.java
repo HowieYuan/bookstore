@@ -21,13 +21,25 @@ public class Statistics extends BaseRowModel {
     @ExcelProperty(value = "销售额", index = 2)
     private int amount;
 
+    @ExcelProperty(value = "书本数目", index = 3)
+    private int bookNum;
+
     public Statistics() {
     }
 
-    public Statistics(String category, int sales, int amount) {
+    public Statistics(String category, int sales, int amount, int bookNum) {
         this.category = category;
         this.sales = sales;
         this.amount = amount;
+        this.bookNum = bookNum;
+    }
+
+    public int getBookNum() {
+        return bookNum;
+    }
+
+    public void setBookNum(int bookNum) {
+        this.bookNum = bookNum;
     }
 
     public String getCategory() {
